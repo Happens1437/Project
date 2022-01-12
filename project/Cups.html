@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            background-color: crimson;
+            padding: 30px;
+            text-align: center;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        footer {
+            background-color: blue;
+            padding: 50px;
+            text-align: center;
+            font-style: italic;
+            font-size: 20px;
+        }
+
+       button {
+         transition-duration: 0.4s;
+         padding: 20px;   
+         border-radius: 25px;
+         cursor: pointer;
+         font-size: large;
+       }
+
+       button:hover {
+         background-color: green;
+         color: white;
+       }
+
+       #Click {
+          text-align: center;
+          transition-duration: 0.3s;
+          
+       }
+      
+       section {
+         text-align: center;
+       }
+
+      img {
+        width: 175px;
+        cursor: pointer;
+        
+      }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h3>თამაში "ჭიქები"<br>Game "Cups"</h3>
+    </header>
+    <section>
+        <article>
+            <center>
+                <img src="FotosOfTemplate4/cup.png" onclick="gamocnoba(0)">
+                <img src="FotosOfTemplate4/cup.png" onclick="gamocnoba(1)">
+                <img src="FotosOfTemplate4/cup.png" onclick="gamocnoba(2)">
+            </center>
+            <script>
+                var play = true
+                var imageOfCup
+
+                var Rand = Math.random()
+                if (Rand <= 0.33){
+                    imageOfCup = 0
+                }
+                if (Rand > 0.33 && Rand<=0.66){
+                    imageOfCup = 1
+                } else if (Rand>0.66 && Rand <=1){
+                    imageOfCup = 2
+                }
+        
+                function gamocnoba(N) {
+                    if (play) {
+                       document.images[N].src = "FotosOfTemplate4/cup.png"
+                       if (N == imageOfCup){
+                           document.getElementById("Click").innerHTML = "გილოცავთ, თქვენ მოიგეთ!!!"
+                           document.getElementById("Click").style.color = "green"
+                           document.images[N].src = "FotosOfTemplate4/cup_with_boll.png"
+                           play = false
+                       } 
+                       else 
+                       {
+                        document.getElementById("Click").innerHTML = "სამწუხაროდ, თქვენ წააგეთ!" 
+                        document.getElementById("Click").style.color = "red"
+                        play = false
+                       }
+                    } 
+                    else 
+                    {
+                        document.getElementById("Click").style.color = "blue"
+                        document.getElementById("Click").innerHTML = "თამაში დასრულებულია." 
+                    }
+                }
+            </script>
+        </article>
+        <br><button id="Button" onclick="location.reload()">განაახლე თამაში</button>
+        <p id="Click"><b>დააკლიკეთ ჭიქაზე, სადაც გეგულებათ ბურთულა</b></p>
+    </section>
+    <footer>
+        <p>2022 copyright &copy; ყველა უფლება დაცულია</p>
+      </footer>
+</body>
+</html>

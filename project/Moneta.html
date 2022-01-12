@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arioii-reshka</title>
+    <style>
+		* {
+		  box-sizing: border-box;
+		}
+
+		body {
+		  font-family: Arial, Helvetica, sans-serif;
+          
+		}
+
+		header {
+		  background-color: rgb(26, 27, 131);
+		  padding: 30px;
+		  text-align: center;
+		  font-size: 20px;
+		  color: rgb(124, 12, 12);
+		  font-style: italic;
+		 }
+
+		article {
+		  padding: 20px;
+		  width: 100%;
+		  background-color: white;
+		  text-align: center;
+		}
+		
+		footer {
+		  background-color: rgba(48, 12, 131, 0.281);
+		  padding: 10px;
+		  text-align: center;
+		  color: rgb(73, 17, 7);
+      font-style: italic;
+		}
+
+		img{
+		  width: 150px;
+      cursor: pointer;
+		}
+
+        #result {
+            color: green;
+            font-size: larger;
+            transition-duration: 0.5s;
+            
+        }
+
+        #result1 {
+            font-size: larger;
+            transition-duration: 0.5s;
+            
+        }
+
+    button {
+      transition-duration: 0.4s;
+      padding: 20px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color:seagreen;
+      color: dimgrey;
+    }
+
+
+		</style>	
+
+</head>
+<body>
+    <header>
+        <h3>თამაში "....."<br>Game "......."</h3>
+    </header>
+    <section>
+        <article>
+        <p id="result"></p>
+        <img src="images/.png" >
+        <p id="result1"></p>
+        <script>
+            var home = 0;
+            var away = 0;
+
+             for (let i=0; i<100; i++){
+                 var x = Math.random();
+                 if (x>0.5){
+                     home++;
+                 } else {
+                     away++;
+                 }
+             }
+
+             document.getElementById("result").innerHTML = "Home: " + home+"  Away: " + away;
+
+             if (home>away){
+                 document.getElementById("result1").innerHTML = "თქვენ მოიგეთ - You win";
+                 document.getElementById("result1").style.color = "green"
+                 document.images[0].src = "images/erTi_lari_reversi.png";
+             }  
+            else {
+                 document.getElementById("result1").innerHTML = "თქვენ წააგეთ";
+                 document.getElementById("result1").style.color = "red"
+                 document.images[0].src = "images/erTi_lari_aversi.png";
+             }
+            
+        </script>
+         <br><button id="Button" onclick="location.reload()">სცადეთ თავიდან</button>
+    </article>
+    </section>
+    <footer>
+      <p>2022 copyright &copy; ყველა უფლება დაცულია</p>
+    </footer>
+</body>
+</html>

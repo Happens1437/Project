@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>კამათლები</title>
+    <style>
+		* {
+		  box-sizing: border-box;
+		}
+
+		body {
+		  font-family: Arial, Helvetica, sans-serif;
+          
+		}
+
+		header {
+		  background-color: rgb(26, 27, 131);
+		  padding: 30px;
+		  text-align: center;
+		  font-size: 20px;
+		  color: rgb(124, 12, 12);
+      font-style: italic;
+		  
+		 }
+
+		article {
+		  padding: 20px;
+		  width: 100%;
+		  background-color: white;
+		  text-align: center;
+		}
+		
+		footer {
+		  background-color: rgba(48, 12, 131, 0.281);
+		  padding: 10px;
+		  text-align: center;
+		  color: rgb(73, 17, 7);
+		}
+
+		img{
+		  width: 150px;
+      cursor: pointer;
+		}
+
+    #result {
+      color: green;
+      font-size: larger;
+    }
+
+    button {
+      transition-duration: 0.4s;
+      padding: 20px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color:seagreen;
+      color: dimgrey;
+    }
+
+  
+      
+		</style>	
+
+</head>
+<body>
+    <header>
+        <h3>თამაში "კამათლები"<br>Game "Dices"</h3>
+    </header>
+      <section>
+          <article>
+
+            <img src="Diced3d/.png">
+            <span id="NameDice" ></span>
+            <img src="Diced3d/.png">
+            <p id="result"></p>
+            <script>
+
+                 function func(URL_img,Name,Twins){
+                     this.URL_img = URL_img
+                     this.Name = Name
+                     this.Twins = Twins
+                 }
+
+                 var Objects = []
+                 Objects[0] = new func("dice-3d-i.png","იაქი","იაგანი")
+                 Objects[1] = new func("dice-3d-ii.png","დუ","დუბარა")
+                 Objects[2] = new func("dice-3d-iii.png","სე","დუსე")
+                 Objects[3] = new func("dice-3d-iv.png","ჩარი","დორჩარი")
+                 Objects[4] = new func("dice-3d-v.png","ფანჯი","დუბეში")
+                 Objects[5] = new func("dice-3d-vi.png","შაში","დუშაში")
+
+                 var home = 0;
+                 var away = 0;
+
+                 var random_home = Math.floor(6*Math.random());
+                 var random_away = Math.floor(6*Math.random());
+
+                 document.images[0].src =  "Dice3d/" + Objects[random_home].URL_img
+
+                 var Max = Math.max(random_home,random_away)
+                 var Min = Math.min(random_home,random_away)
+
+                 if (Max != Min){
+                   if (Max==4 && Min==3){
+                     document.getElementById("NameDice").innerHTML = "ბეშ ოთხი"
+                 }
+                  else if (Max==2 && Min==1){
+                     document.getElementById("NameDice").innerHTML = "სევაი დუ"
+                 } 
+                 else if (Max==5 && Min==4){
+                     document.getElementById("NameDice").innerHTML = "შაში ბეში"
+                 } 
+                 else if (true){
+                     document.getElementById("NameDice").innerHTML = Objects[Max].Name+ " " + Objects[Min].Name
+                   } 
+                 } 
+                 else {
+                     document.getElementById("NameDice").innerHTML = Objects[Max].Twins
+                 }
+
+                 document.images[1].src = "Dice3d/" + Objects[random_away].URL_img
+
+                 if (random_home > random_away){
+                     document.getElementById("result").innerHTML = "გილოცავთ, თქვენ მოიგეთ!!!"
+                     document.getElementById("result").style.color = "green"
+                  
+                    }
+                  else {
+                     document.getElementById("result").innerHTML = "სამწუხაროდ თქვენ წააგეთ."
+                     document.getElementById("result").style.color = "red"
+                 }
+                
+            </script>
+            <br><button onclick="location.reload()">თამაშის თავიდან დაწყება</button>
+          </article>
+      </section>
+      <footer>
+        <p>2022 copyright &copy; ყველა უფლება დაცულია</p>
+      </footer>
+</body>
+</html>
